@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import '../styles/MainPage.css';
 
 export default function MainPage() {
-  const API =
-    'https://api.giphy.com/v1/gifs/translate?api_key=qfo7Y0r4yYWleaOhwWI4J1F74Azisus8&s=rick';
   const [final, setFinal] = useState('');
+  const [clickedCards, setClickedCards] = useState([]);
+
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character/1,2,3,4,5,47,242,331')
       .then((result) => result.json())
@@ -14,11 +14,16 @@ export default function MainPage() {
       });
   }, []);
 
+  function handleClick(e) {
+    setClickedCards([...clickedCards, Number(e.target.parentElement.id)]);
+    console.log(clickedCards);
+  }
+
   return (
-    <ul>
+    <ul onClick={handleClick}>
       {final &&
         final.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} id={item.id}>
             <img width={200} height={200} src={item.image} />
           </li>
         ))}
