@@ -4,7 +4,7 @@ import '../styles/MainPage.css';
 export default function MainPage() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [final, setFinal] = useState('');
+  const [final, setFinal] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
 
   useEffect(() => {
@@ -29,15 +29,16 @@ export default function MainPage() {
       setFinal([...final].sort(() => Math.random() - 0.5));
       setScore(score + 1);
     }
-    console.log(clickedCards);
   }
 
   return (
-    <div>
-      <p>{score}</p>
-      <p>{bestScore}</p>
+    <div className="main-container">
+      <div className="para-container">
+        <p className="score-para">{score}</p>
+        <p className="score-para">{bestScore}</p>
+      </div>
       <ul onClick={handleClick}>
-        {final &&
+        {final.length > 0 &&
           final.map((item) => (
             <li key={item.id} id={item.id}>
               <img width={200} height={200} src={item.image} />

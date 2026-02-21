@@ -11,3 +11,27 @@ ul {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.main-container {
+  /* background-color: #00fbff; */
+  background-color: #0b0072;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-para {
+  width: 120px;
+  height: 40px;
+  border: 1px solid wheat;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.para-container {
+  display: flex;
+  gap: 2rem;
+}
