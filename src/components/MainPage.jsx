@@ -12,12 +12,11 @@ export default function MainPage() {
       .then((result) => result.json())
       .then((result) => {
         setFinal(result.sort(() => Math.random() - 0.5));
-        console.log(result);
       });
   }, []);
 
   function handleClick(e) {
-    const id = Number(e.target.parentElement.id);
+    const id = Number(e.target.id);
     if (clickedCards.includes(id)) {
       if (score > bestScore) {
         setBestScore(score);
@@ -41,7 +40,7 @@ export default function MainPage() {
         {final.length > 0 &&
           final.map((item) => (
             <li key={item.id} id={item.id}>
-              <img width={200} height={200} src={item.image} />
+              <img width={200} id={item.id} height={200} src={item.image} />
             </li>
           ))}
       </ul>

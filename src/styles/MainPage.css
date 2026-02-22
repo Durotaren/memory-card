@@ -13,12 +13,13 @@ ul {
 }
 
 .main-container {
-  /* background-color: #00fbff; */
-  background-color: #0b0072;
   padding: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  border: 3px solid red;
+  pointer-events: none;
 }
 
 .score-para {
