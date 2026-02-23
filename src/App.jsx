@@ -2,10 +2,14 @@ import { useState } from 'react';
 import './styles/App.css';
 import MainPage from './components/MainPage';
 import FaultyTerminal from './components/FaultyTerminal';
+import IntroductionModal from './components/IntroductionModal';
 
 function App() {
+  const [firstTime, setFirstTime] = useState(true);
+
   return (
     <div className="main-content">
+      {firstTime && <IntroductionModal />}
       <div
         className="terminal-container"
         style={{ width: '100%', height: '100svh', position: 'relative' }}
@@ -36,6 +40,3 @@ function App() {
 }
 
 export default App;
-{
-  /* <MainPage /> */
-}

@@ -38,10 +38,10 @@ export default function MainPage() {
         <p className="score-para">{`Current Score: ${score}`}</p>
         <p className="score-para">{`Best Score: ${bestScore}`}</p>
       </div>
-      <ul onClick={handleClick}>
+      <ul className="cards-container" onClick={handleClick}>
         {final.length > 0 &&
           final.map((item) => (
-            <li key={item.id} id={item.id}>
+            <li className="card" key={item.id} id={item.id}>
               <img width={300} id={item.id} height={300} src={item.image} />
             </li>
           ))}

@@ -3,11 +3,11 @@ img {
   border-radius: 10px;
 }
 
-li {
+.card {
   list-style: none;
 }
 
-ul {
+.cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,7 +21,7 @@ ul {
   position: absolute;
 }
 
-.score-para {
+button {
   width: 200px;
   height: 60px;
   border-radius: 100px;
