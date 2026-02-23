@@ -6,7 +6,10 @@ import FaultyTerminal from './components/FaultyTerminal';
 function App() {
   return (
     <div className="main-content">
-      <div style={{ width: '100%', height: '100svh', position: 'relative' }}>
+      <div
+        className="terminal-container"
+        style={{ width: '100%', height: '100svh', position: 'relative' }}
+      >
         <FaultyTerminal
           scale={1.5}
           gridMul={[2, 1]}

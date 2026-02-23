@@ -11,6 +11,8 @@ export default function MainPage() {
     fetch('https://rickandmortyapi.com/api/character/1,2,3,4,5,47,242,331')
       .then((result) => result.json())
       .then((result) => {
+        console.log(result);
+
         setFinal(result.sort(() => Math.random() - 0.5));
       });
   }, []);
@@ -33,14 +35,14 @@ export default function MainPage() {
   return (
     <div className="main-container">
       <div className="para-container">
-        <p className="score-para">{score}</p>
-        <p className="score-para">{bestScore}</p>
+        <p className="score-para">{`Current Score: ${score}`}</p>
+        <p className="score-para">{`Best Score: ${bestScore}`}</p>
       </div>
       <ul onClick={handleClick}>
         {final.length > 0 &&
           final.map((item) => (
             <li key={item.id} id={item.id}>
-              <img width={200} id={item.id} height={200} src={item.image} />
+              <img width={300} id={item.id} height={300} src={item.image} />
             </li>
           ))}
       </ul>
