@@ -61,14 +61,14 @@ The app uses localStorage to track whether the user has seen the instructions:
 
 ## Setup and Installation
 
-1. Clone the repository
-   git clone git@github.com:Durotaren/memory-card.git
+1. Clone the repository -
+   `git clone git@github.com:Durotaren/memory-card.git`
 
-2. Navigate to the project folder
-   cd memory-card
+2. Navigate to the project folder -
+   `cd memory-card`
 
-3. Install dependencies
-   npm install
+3. Install dependencies -
+   `npm install`
 
-4. Start the development server
-   npm run dev
+4. Start the development server -
+   `npm run dev`
