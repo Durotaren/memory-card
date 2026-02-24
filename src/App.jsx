@@ -22,7 +22,7 @@ function App() {
         className="terminal-container"
         style={{ width: '100%', height: '100svh', position: 'relative' }}
       >
-        {/* <FaultyTerminal
+        <FaultyTerminal
           scale={1.5}
           gridMul={[2, 1]}
           digitSize={1.2}
@@ -40,9 +40,9 @@ function App() {
           mouseStrength={0.5}
           pageLoadAnimation
           brightness={1}
-        /> */}
+        />
       </div>
-      <MainPage />
+      <MainPage firstTime={firstTime} setFirstTime={setFirstTime} />
     </div>
   );
 }

@@ -57,9 +57,9 @@ li {
   width: 150px;
   height: 60px;
   border-radius: 50px;
-  transition: transform 0.2s;
+  transition: transform 0.1s;
 }
 
 .agree-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }

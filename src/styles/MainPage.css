@@ -52,7 +52,8 @@ img {
   gap: 2rem;
 }
 
-.lost-div {
+.lost-div,
+.won-div {
   margin-top: -64px;
   position: absolute;
   display: flex;
@@ -63,7 +64,8 @@ img {
   backdrop-filter: blur(20px);
 }
 
-.inner-lost {
+.inner-lost,
+.inner-won {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -84,4 +86,12 @@ img {
   padding: 0 8px;
   margin: 16px 0 8px;
   border-radius: 10px;
+}
+
+.won-game {
+  color: #238a8c;
+}
+
+.lost-game {
+  color: rgb(148, 0, 0);
 }
