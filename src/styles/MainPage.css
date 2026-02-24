@@ -23,7 +23,8 @@ img {
   position: absolute;
 }
 
-.score-para {
+.score-para,
+.show-instructions-btn {
   width: 220px;
   height: 60px;
   border-radius: 100px;
@@ -41,7 +42,46 @@ img {
   margin-bottom: 16px;
 }
 
+.show-instructions-btn {
+  width: 240px;
+  color: white;
+}
+
 .para-container {
   display: flex;
   gap: 2rem;
+}
+
+.lost-div {
+  margin-top: -64px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100svh;
+  backdrop-filter: blur(20px);
+}
+
+.inner-lost {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 24px;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+.start-over-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  padding: 0 8px;
+  margin: 16px 0 8px;
+  border-radius: 10px;
 }
