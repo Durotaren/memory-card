@@ -1,20 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles/App.css';
 import MainPage from './components/MainPage';
 import FaultyTerminal from './components/FaultyTerminal';
 import IntroductionModal from './components/IntroductionModal';
 
 function App() {
-  const [firstTime, setFirstTime] = useState(true);
+  const [firstTime, setFirstTime] = useState(() => {
+    return JSON.parse(localStorage.getItem('firstTime')) ?? true;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('firstTime', firstTime);
+  }, [firstTime]);
 
   return (
     <div className="main-content">
-      {firstTime && <IntroductionModal />}
+      {firstTime && (
+        <IntroductionModal firstTime={firstTime} setFirstTime={setFirstTime} />
+      )}
       <div
         className="terminal-container"
         style={{ width: '100%', height: '100svh', position: 'relative' }}
       >
-        <FaultyTerminal
+        {/* <FaultyTerminal
           scale={1.5}
           gridMul={[2, 1]}
           digitSize={1.2}
@@ -32,7 +40,7 @@ function App() {
           mouseStrength={0.5}
           pageLoadAnimation
           brightness={1}
-        />
+        /> */}
       </div>
       <MainPage />
     </div>

@@ -1,15 +1,10 @@
 * {
-  color: white;
+  color: black;
 }
 
 h1 {
   font-size: 48px;
   margin-bottom: 16px;
-}
-
-.instructions-container {
-  display: flex;
-  flex-direction: column;
 }
 
 li {
@@ -18,7 +13,7 @@ li {
 }
 
 .modal-container {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.4);
   color: #00fbff;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -29,6 +24,42 @@ li {
   position: absolute;
   display: flex;
   justify-content: center;
+  padding-top: 48px;
   width: 100vw;
   height: 100svh;
+}
+
+.inner-modal {
+  height: 390px;
+}
+
+.instructions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.list-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.agree-btn {
+  font-weight: 600;
+  font-size: 32px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 150px;
+  height: 60px;
+  border-radius: 50px;
+  transition: transform 0.2s;
+}
+
+.agree-btn:hover {
+  transform: scale(1.1);
 }
