@@ -1,6 +1,10 @@
 import '../styles/IntroductionModal.css';
+import { ModalProps } from '../types/index';
 
-export default function IntroductionModal({ firstTime, setFirstTime }) {
+export default function IntroductionModal({
+  firstTime,
+  setFirstTime,
+}: ModalProps) {
   return (
     <div className="modal-container">
       <div className="inner-modal">
