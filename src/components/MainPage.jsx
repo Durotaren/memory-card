@@ -14,6 +14,7 @@ export default function MainPage({ firstTime, setFirstTime }) {
       .then((result) => result.json())
       .then((result) => {
         setFinal(result.sort(() => Math.random() - 0.5));
+        console.log(result);
       });
   }, []);
 
