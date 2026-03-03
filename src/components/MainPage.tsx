@@ -15,12 +15,14 @@ export default function MainPage({ firstTime, setFirstTime }: ModalProps) {
       .then((result) => result.json())
       .then((result) => {
         setFinal(result.sort(() => Math.random() - 0.5));
-        console.log(result);
       });
   }, []);
 
   function handleClick(e: React.MouseEvent<HTMLUListElement>) {
-    const target = e.target as HTMLElement;
+    const target = (e.target as HTMLElement).closest('img');
+    if (!target) {
+      return;
+    }
     const id = Number(target.id);
     if (clickedCards.includes(id)) {
       if (score > bestScore) {
@@ -97,6 +99,7 @@ export default function MainPage({ firstTime, setFirstTime }: ModalProps) {
                 id={String(item.id)}
                 height={300}
                 src={item.image}
+                draggable={false}
               />
             </li>
           ))}
