@@ -5,12 +5,13 @@ import FaultyTerminal from './components/FaultyTerminal';
 import IntroductionModal from './components/IntroductionModal';
 
 function App() {
-  const [firstTime, setFirstTime] = useState(() => {
-    return JSON.parse(localStorage.getItem('firstTime')) ?? true;
+  const [firstTime, setFirstTime] = useState<boolean>(() => {
+    // return JSON.parse(localStorage.getItem('firstTime')) ?? true;
+    return localStorage.getItem('firstTime') ? true : false;
   });
 
   useEffect(() => {
-    localStorage.setItem('firstTime', firstTime);
+    localStorage.setItem('firstTime', JSON.stringify(firstTime));
   }, [firstTime]);
 
   return (
