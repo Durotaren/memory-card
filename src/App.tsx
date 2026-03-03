@@ -6,7 +6,6 @@ import IntroductionModal from './components/IntroductionModal';
 
 function App() {
   const [firstTime, setFirstTime] = useState<boolean>(() => {
-    // return JSON.parse(localStorage.getItem('firstTime')) ?? true;
     return localStorage.getItem('firstTime') ? true : false;
   });
 
