@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import '../styles/MainPage.css';
+import { ModalProps, Character } from '../types';
 
-export default function MainPage({ firstTime, setFirstTime }) {
-  const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-  const [final, setFinal] = useState([]);
-  const [clickedCards, setClickedCards] = useState([]);
-  const [lost, changeLost] = useState(false);
-  const [won, changeWon] = useState(false);
+export default function MainPage({ firstTime, setFirstTime }: ModalProps) {
+  const [score, setScore] = useState<number>(0);
+  const [bestScore, setBestScore] = useState<number>(0);
+  const [final, setFinal] = useState<Character[]>([]);
+  const [clickedCards, setClickedCards] = useState<number[]>([]);
+  const [lost, changeLost] = useState<boolean>(false);
+  const [won, changeWon] = useState<boolean>(false);
 
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character/1,2,3,4,5,47,242,331')
@@ -18,8 +19,9 @@ export default function MainPage({ firstTime, setFirstTime }) {
       });
   }, []);
 
-  function handleClick(e) {
-    const id = Number(e.target.id);
+  function handleClick(e: React.MouseEvent<HTMLUListElement>) {
+    const target = e.target as HTMLElement;
+    const id = Number(target.id);
     if (clickedCards.includes(id)) {
       if (score > bestScore) {
         setBestScore(score);
@@ -89,8 +91,13 @@ export default function MainPage({ firstTime, setFirstTime }) {
       <ul className="cards-container" onClick={handleClick}>
         {final.length > 0 &&
           final.map((item) => (
-            <li className="card" key={item.id} id={item.id}>
-              <img width={300} id={item.id} height={300} src={item.image} />
+            <li className="card" key={item.id} id={String(item.id)}>
+              <img
+                width={300}
+                id={String(item.id)}
+                height={300}
+                src={item.image}
+              />
             </li>
           ))}
       </ul>
