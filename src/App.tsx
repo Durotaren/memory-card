@@ -6,7 +6,7 @@ import Silk from './components/Silk';
 
 function App() {
   const [firstTime, setFirstTime] = useState<boolean>(() => {
-    return localStorage.getItem('firstTime') ? true : false;
+    return localStorage.getItem('firstTime') ? false : true;
   });
 
   useEffect(() => {
