@@ -34,7 +34,7 @@ export default function MainPage({ firstTime, setFirstTime }: ModalProps) {
     } else {
       setClickedCards([...clickedCards, id]);
       setFinal([...final].sort(() => Math.random() - 0.5));
-      setScore(score + 1);
+      setScore((prevScore) => prevScore + 1);
       if (score + 1 === 8) {
         setBestScore(8);
         changeWon(true);
@@ -43,67 +43,69 @@ export default function MainPage({ firstTime, setFirstTime }: ModalProps) {
   }
 
   return (
-    <div className="main-container">
-      {won && (
-        <div className="won-div">
-          <div className="inner-won">
-            <p className="won-game">Genius level achieved. Respect.</p>
-            <p>Your current Best score is: {bestScore}</p>
-            <button
-              className="start-over-btn"
-              onClick={() => {
-                changeWon(false);
-                setScore(0);
-                setClickedCards([]);
-              }}
-            >
-              Run It Again.
-            </button>
+    final.length && (
+      <div className="main-container">
+        {won && (
+          <div className="won-div">
+            <div className="inner-won">
+              <p className="won-game">Genius level achieved. Respect.</p>
+              <p>Your current Best score is: {bestScore}</p>
+              <button
+                className="start-over-btn"
+                onClick={() => {
+                  changeWon(false);
+                  setScore(0);
+                  setClickedCards([]);
+                }}
+              >
+                Run It Again.
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-      {lost && (
-        <div className="lost-div">
-          <div className="inner-lost">
-            <p className="lost-game">You messed it up, Morty! Try again!</p>
-            <p>Your current Best score is: {bestScore}</p>
-            <button
-              className="start-over-btn"
-              onClick={() => {
-                changeLost(false);
-              }}
-            >
-              Reset Timeline.
-            </button>
+        )}
+        {lost && (
+          <div className="lost-div">
+            <div className="inner-lost">
+              <p className="lost-game">You messed it up, Morty! Try again!</p>
+              <p>Your current Best score is: {bestScore}</p>
+              <button
+                className="start-over-btn"
+                onClick={() => {
+                  changeLost(false);
+                }}
+              >
+                Reset Timeline.
+              </button>
+            </div>
           </div>
+        )}
+        <div className="para-container">
+          <p className="score-para">{`Current Score: ${score}`}</p>
+          <p className="score-para">{`Best Score: ${bestScore}`}</p>
+          <button
+            onClick={() => {
+              setFirstTime(true);
+            }}
+            className="show-instructions-btn"
+          >
+            Show Instructions
+          </button>
         </div>
-      )}
-      <div className="para-container">
-        <p className="score-para">{`Current Score: ${score}`}</p>
-        <p className="score-para">{`Best Score: ${bestScore}`}</p>
-        <button
-          onClick={() => {
-            setFirstTime(true);
-          }}
-          className="show-instructions-btn"
-        >
-          Show Instructions
-        </button>
+        <ul className="cards-container" onClick={handleClick}>
+          {final.length > 0 &&
+            final.map((item) => (
+              <li className="card" key={item.id} id={String(item.id)}>
+                <img
+                  width={300}
+                  id={String(item.id)}
+                  height={300}
+                  src={item.image}
+                  draggable={false}
+                />
+              </li>
+            ))}
+        </ul>
       </div>
-      <ul className="cards-container" onClick={handleClick}>
-        {final.length > 0 &&
-          final.map((item) => (
-            <li className="card" key={item.id} id={String(item.id)}>
-              <img
-                width={300}
-                id={String(item.id)}
-                height={300}
-                src={item.image}
-                draggable={false}
-              />
-            </li>
-          ))}
-      </ul>
-    </div>
+    )
   );
 }
