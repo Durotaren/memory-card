@@ -20,7 +20,7 @@ function App() {
       )}
       <div
         className="terminal-container"
-        style={{ width: '100%', height: '100svh', position: 'relative' }}
+        style={{ width: '100%', height: '100svh', position: 'fixed' }}
       >
         <Silk
           speed={5}
