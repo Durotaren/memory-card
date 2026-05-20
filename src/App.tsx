@@ -1,8 +1,8 @@
+import Silk from './components/Silk';
 import { useState, useEffect } from 'react';
 import './styles/App.css';
 import MainPage from './components/MainPage';
 import IntroductionModal from './components/IntroductionModal';
-import Silk from './components/Silk';
 
 function App() {
   const [firstTime, setFirstTime] = useState<boolean>(() => {

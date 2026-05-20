@@ -9,14 +9,17 @@ img {
 .card {
   list-style: none;
   cursor: pointer;
-  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cards-container {
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .main-container {
@@ -98,4 +101,11 @@ img {
 
 .lost-game {
   color: rgb(148, 0, 0);
+}
+
+@media (max-width: 875px) {
+  .para-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
