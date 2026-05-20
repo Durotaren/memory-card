@@ -63,3 +63,8 @@ li {
 .agree-btn:hover {
   transform: scale(1.05);
 }
+
+.inner-modal {
+  width: 900px;
+  min-height: 390px;
+}
