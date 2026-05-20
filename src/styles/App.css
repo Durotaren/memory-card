@@ -7,3 +7,11 @@
 .terminal-container {
   pointer-events: none;
 }
+
+.app-hidden {
+  opacity: 0;
+}
+
+.app-visible {
+  opacity: 1;
+}

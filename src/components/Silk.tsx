@@ -87,13 +87,15 @@ void main() {
 
 interface SilkPlaneProps {
   uniforms: SilkUniforms;
+  onReady?: () => void;
 }
 
 const SilkPlane = forwardRef<Mesh, SilkPlaneProps>(function SilkPlane(
-  { uniforms },
+  { uniforms, onReady },
   ref,
 ) {
   const { viewport } = useThree();
+  const readyRef = useRef<boolean>(false);
 
   useLayoutEffect(() => {
     const mesh = ref as React.MutableRefObject<Mesh | null>;
@@ -109,6 +111,10 @@ const SilkPlane = forwardRef<Mesh, SilkPlaneProps>(function SilkPlane(
         uniforms: SilkUniforms;
       };
       material.uniforms.uTime.value += 0.1 * delta;
+      if (!readyRef.current) {
+        readyRef.current = true;
+        onReady?.();
+      }
     }
   });
 
@@ -131,6 +137,7 @@ export interface SilkProps {
   color?: string;
   noiseIntensity?: number;
   rotation?: number;
+  onReady?: () => void;
 }
 
 const Silk: React.FC<SilkProps> = ({
@@ -139,6 +146,7 @@ const Silk: React.FC<SilkProps> = ({
   color = '#7B7481',
   noiseIntensity = 1.5,
   rotation = 0,
+  onReady,
 }) => {
   const meshRef = useRef<Mesh>(null);
 
@@ -156,7 +164,7 @@ const Silk: React.FC<SilkProps> = ({
 
   return (
     <Canvas dpr={[1, 2]} frameloop="always">
-      <SilkPlane ref={meshRef} uniforms={uniforms} />
+      <SilkPlane ref={meshRef} uniforms={uniforms} onReady={onReady} />
     </Canvas>
   );
 };

@@ -8,6 +8,7 @@ function App() {
   const [firstTime, setFirstTime] = useState<boolean>(() => {
     return localStorage.getItem('firstTime') ? false : true;
   });
+  const [backgroundReady, setBackgroundReady] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('firstTime', JSON.stringify(firstTime));
@@ -15,9 +16,14 @@ function App() {
 
   return (
     <div className="main-content">
-      {firstTime && (
-        <IntroductionModal firstTime={firstTime} setFirstTime={setFirstTime} />
-      )}
+      <div className={backgroundReady ? 'app-visible' : 'app-hidden'}>
+        {firstTime && (
+          <IntroductionModal
+            firstTime={firstTime}
+            setFirstTime={setFirstTime}
+          />
+        )}
+      </div>
       <div
         className="terminal-container"
         style={{ width: '100%', height: '100svh', position: 'fixed' }}
@@ -28,9 +34,12 @@ function App() {
           color="#00fbff"
           noiseIntensity={1.5}
           rotation={0}
+          onReady={() => setBackgroundReady(true)}
         />
       </div>
-      <MainPage firstTime={firstTime} setFirstTime={setFirstTime} />
+      <div className={backgroundReady ? 'app-visible' : 'app-hidden'}>
+        <MainPage firstTime={firstTime} setFirstTime={setFirstTime} />
+      </div>
     </div>
   );
 }
