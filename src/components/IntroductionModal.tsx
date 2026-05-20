@@ -28,7 +28,7 @@ export default function IntroductionModal({
           <button
             className="agree-btn"
             onClick={() => {
-              setFirstTime(!firstTime);
+              setFirstTime(false);
             }}
           >
             Got it!

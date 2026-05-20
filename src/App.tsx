@@ -6,8 +6,10 @@ import Silk from './components/Silk';
 
 function App() {
   const [firstTime, setFirstTime] = useState<boolean>(() => {
-    return localStorage.getItem('firstTime') ? false : true;
+    const stored = localStorage.getItem('firstTime');
+    return stored ? JSON.parse(stored) : true;
   });
+
   const [backgroundReady, setBackgroundReady] = useState(false);
 
   useEffect(() => {

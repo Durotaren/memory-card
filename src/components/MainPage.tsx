@@ -84,7 +84,7 @@ export default function MainPage({ firstTime, setFirstTime }: ModalProps) {
           <p className="score-para">{`Best Score: ${bestScore}`}</p>
           <button
             onClick={() => {
-              setFirstTime(true);
+              setFirstTime(!firstTime);
             }}
             className="show-instructions-btn"
           >
