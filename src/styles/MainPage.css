@@ -4,6 +4,7 @@ img {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  object-fit: cover;
 }
 
 .card {
@@ -28,6 +29,7 @@ img {
   flex-direction: column;
   align-items: center;
   position: absolute;
+  min-height: 100svh;
 }
 
 .score-para,
@@ -67,7 +69,7 @@ img {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100svh;
+  min-height: 100svh;
   backdrop-filter: blur(20px);
 }
 
@@ -107,5 +109,32 @@ img {
   .para-container {
     flex-direction: column;
     align-items: center;
+  }
+
+  .main-container {
+    padding: 32px;
+  }
+
+  .lost-div,
+  .won-div {
+    margin-top: -32px;
+  }
+}
+
+@media (max-width: 700px) {
+  img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 500px) {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .para-container {
+    gap: 1rem;
   }
 }
